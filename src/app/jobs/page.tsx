@@ -1,7 +1,5 @@
-export default function JobsPage() {
-  return (
-    <main className="container py-10">
-      <h1 className="text-3xl font-bold">Job Search</h1>
-    </main>
-  );
+import { JobsPage } from "@/features/jobs";
+
+export default function Page() {
+  return <JobsPage />;
 }
