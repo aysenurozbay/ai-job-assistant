@@ -1,4 +1,4 @@
-import { SearchBar, SearchBar } from "./components/SearchBar";
+import { SearchBar } from "./components/SearchBar";
 import { JobList } from "./components/JobList";
 
 export function JobsPage() {
