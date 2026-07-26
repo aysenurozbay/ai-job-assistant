@@ -1,5 +1,5 @@
-import { SearchBar } from "./components/SearchBar";
-import { EmptyState } from "./components/EmptyState";
+import { SearchBar, SearchBar } from "./components/SearchBar";
+import { JobList } from "./components/JobList";
 
 export function JobsPage() {
   return (
@@ -11,10 +11,8 @@ export function JobsPage() {
           Search and discover your next opportunity.
         </p>
       </header>
-
       <SearchBar />
-
-      <EmptyState />
+      <JobList />
     </main>
   );
 }
