@@ -1,10 +1,14 @@
-import { mockJobs } from "../mockJobs";
+import type { Job } from "../types/job";
 import { JobCard } from "./JobCard";
 
-export function JobList() {
+type JobListProps = {
+  jobs: Job[];
+};
+
+export function JobList({ jobs }: JobListProps) {
   return (
     <div className="space-y-4">
-      {mockJobs.map((job) => (
+      {jobs.map((job) => (
         <JobCard key={job.id} job={job} />
       ))}
     </div>

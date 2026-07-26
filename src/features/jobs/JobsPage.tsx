@@ -1,9 +1,8 @@
-import { SearchBar } from "./components/SearchBar";
-import { JobList } from "./components/JobList";
+import { JobSearch } from "./components/JobSearch";
 
 export function JobsPage() {
   return (
-    <main className="container mx-auto max-w-5xl py-10 space-y-8">
+    <main className="container mx-auto max-w-5xl space-y-8 py-10">
       <header>
         <h1 className="text-3xl font-bold">Job Search</h1>
 
@@ -11,8 +10,8 @@ export function JobsPage() {
           Search and discover your next opportunity.
         </p>
       </header>
-      <SearchBar />
-      <JobList />
+
+      <JobSearch />
     </main>
   );
 }
