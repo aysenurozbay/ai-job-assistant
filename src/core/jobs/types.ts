@@ -1,15 +1,15 @@
-export type Job = {
+export interface Job {
   id: string;
 
   title: string;
 
   company: string;
 
-  description: string;
+  description?: string;
 
-  location: string;
+  location?: string;
 
-  workplace: "Remote" | "Hybrid" | "On-site";
+  workplace?: "Remote" | "Hybrid" | "On-site";
 
   employmentType?: string;
 
@@ -20,4 +20,6 @@ export type Job = {
   url: string;
 
   postedAt?: string;
-};
+
+  score?: number;
+}

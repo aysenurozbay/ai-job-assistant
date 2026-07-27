@@ -16,6 +16,7 @@ export function useJobSearch() {
     async function loadJobs() {
       try {
         const data = await getJobs();
+
         const rankedJobs = searchJobs(data);
 
         const jobsWithMatch = rankedJobs.map((job) => ({
@@ -34,17 +35,23 @@ export function useJobSearch() {
   }, []);
 
   const filteredJobs = useMemo(() => {
-    if (!query.trim()) return jobs;
+    const q = query.trim().toLowerCase();
 
-    return jobs.filter((job) =>
-      job.title.toLowerCase().includes(query.toLowerCase()),
-    );
+    if (!q) return jobs;
+
+    return jobs.filter((job) => {
+      return (
+        job.title.toLowerCase().includes(q) ||
+        job.company.toLowerCase().includes(q) ||
+        (job.description ?? "").toLowerCase().includes(q) ||
+        (job.location ?? "").toLowerCase().includes(q)
+      );
+    });
   }, [jobs, query]);
-
   return {
     jobs: filteredJobs,
-    query,
-    setQuery,
+    // query,
+    // setQuery,
     loading,
   };
 }

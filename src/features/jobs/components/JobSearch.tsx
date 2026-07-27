@@ -13,7 +13,7 @@ export function JobSearch() {
 
   return (
     <>
-      <SearchBar value={query} onChange={setQuery} />
+      {/* <SearchBar value={query} onChange={setQuery} /> */}
 
       <JobList jobs={jobs} />
     </>

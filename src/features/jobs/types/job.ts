@@ -1,13 +1,4 @@
-export type Job = {
-  id: string;
-  title: string;
-  company: string;
-  location: string;
-  workplace: "Remote" | "Hybrid" | "On-site";
-  salary?: string;
-  source: string;
-  score?: number;
-};
+import { Job } from "@/core/jobs/types";
 
 export type JobWithMatch = Job & {
   match: {
