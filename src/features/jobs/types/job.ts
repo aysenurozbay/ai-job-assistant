@@ -6,4 +6,15 @@ export type Job = {
   workplace: "Remote" | "Hybrid" | "On-site";
   salary?: string;
   source: string;
+  score?: number;
+};
+
+export type JobWithMatch = Job & {
+  match: {
+    score: number;
+
+    matchedSkills: string[];
+
+    matchedRoles: string[];
+  };
 };
