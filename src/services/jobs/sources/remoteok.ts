@@ -1,7 +1,7 @@
 import type { Job } from "@/core/jobs/types";
 import type { JobSource } from "@/core/jobs/source";
 import { JobSearchCriteria } from "@/core/jobs/searchCriteria";
-
+import { isSoftwareJob } from "@/core/jobs/isSoftwareJob";
 export class RemoteOKSource implements JobSource {
   name = "RemoteOK";
 
@@ -9,10 +9,15 @@ export class RemoteOKSource implements JobSource {
     const response = await fetch("https://remoteok.com/api");
 
     const data = await response.json();
-    console.log(data[1]);
 
     return data
-      .filter((item: any) => item.position)
+      .filter((item: any) => {
+        if (!item.position) {
+          return false;
+        }
+
+        return isSoftwareJob(item.position);
+      })
       .map((item: any) => ({
         id: String(item.id),
 
