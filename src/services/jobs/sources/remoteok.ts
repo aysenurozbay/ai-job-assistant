@@ -11,8 +11,10 @@ export class RemoteOKSource implements JobSource {
     const data = await response.json();
     console.log(
       "Software jobs:",
-      data.filter((item: any) => item.position && isSoftwareJob(item.position))
-        .length,
+      data.filter(
+        (item: any) =>
+          item.position && isSoftwareJob(item.position, item.description ?? ""),
+      ).length,
     );
     return data
       .filter((item: any) => {
