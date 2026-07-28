@@ -20,8 +20,21 @@ const softwareKeywords = [
   "business analyst",
 ];
 
-export function isSoftwareJob(title: string): boolean {
-  const normalizedTitle = title.toLowerCase();
+export function isSoftwareJob(
+  title: string,
 
-  return softwareKeywords.some((keyword) => normalizedTitle.includes(keyword));
+  description: string,
+): boolean {
+  const normalizedTitle = title.toLowerCase();
+  const text = `
+
+${title}
+
+${description}
+
+`.toLowerCase();
+
+  return softwareKeywords.some((keyword) =>
+    text.includes(keyword.toLowerCase()),
+  );
 }
