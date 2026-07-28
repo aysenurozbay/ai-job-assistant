@@ -9,6 +9,7 @@ export class RemoteOKSource implements JobSource {
     const response = await fetch("https://remoteok.com/api");
 
     const data = await response.json();
+    console.log(data[1]);
 
     return data
       .filter((item: any) => item.position)

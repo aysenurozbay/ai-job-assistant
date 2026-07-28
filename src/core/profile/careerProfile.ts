@@ -9,18 +9,33 @@ export const careerProfile = {
   ],
 
   skills: [
-    "React",
-    "React Native",
-    "TypeScript",
-    "JavaScript",
-    "Redux",
-    "Expo",
-    "REST API",
-    "Node.js",
-    "Python",
-    "AWS",
-    "GCP",
-    "Git",
+    { name: "React Native", weight: 20 },
+
+    { name: "React", weight: 15 },
+
+    { name: "TypeScript", weight: 15 },
+
+    { name: "JavaScript", weight: 12 },
+
+    { name: "Redux", weight: 10 },
+
+    { name: "Redux Toolkit", weight: 10 },
+
+    { name: "REST API", weight: 8 },
+
+    { name: "GraphQL", weight: 8 },
+
+    { name: "Expo", weight: 8 },
+
+    { name: "Firebase", weight: 6 },
+
+    { name: "AWS", weight: 5 },
+
+    { name: "GCP", weight: 5 },
+
+    { name: "Docker", weight: 4 },
+
+    { name: "Git", weight: 3 },
   ],
 
   preferredLocations: [
