@@ -1,31 +1,23 @@
 import type { Job } from "@/core/jobs/types";
-import { careerProfile } from "@/core/profile/careerProfile";
+import { matchJob } from "@/features/jobs/utils/matchJob";
+import { isEligible } from "../matching/isEligible";
 
-export function searchJobs(jobs: Job[]): Job[] {
+export function searchJobs(jobs: Job[]) {
   return jobs
-    .map((job) => ({
-      ...job,
-      score: calculateScore(job),
-    }))
+
+    .filter(isEligible)
+
+    .map((job) => {
+      const match = matchJob(job);
+
+      return {
+        ...job,
+
+        score: match.score,
+
+        match,
+      };
+    })
+
     .sort((a, b) => b.score - a.score);
-}
-
-function calculateScore(job: Job): number {
-  let score = 0;
-
-  const title = job.title.toLowerCase();
-
-  careerProfile.preferredRoles.forEach((role) => {
-    if (title.includes(role.toLowerCase())) {
-      score += 40;
-    }
-  });
-
-  careerProfile.skills.forEach((skill) => {
-    if (title.includes(skill.toLowerCase())) {
-      score += 5;
-    }
-  });
-
-  return score;
 }

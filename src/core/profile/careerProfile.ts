@@ -36,4 +36,6 @@ export const careerProfile = {
   experience: "Mid",
 
   english: "B2",
+
+  excludedKeywords: ["Staff", "Principal", "Director", "VP", "Head of"],
 };
